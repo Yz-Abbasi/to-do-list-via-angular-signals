@@ -2,3 +2,10 @@
     <h1>TODOS</h1>
     <input autofocus class="new-todo" name="" placeholder="What needs to be done ..." [value]="text" (keyup)="changeText($event)" (keyup.enter)="addToDo()">
 </div>
+<section class="main">
+    <ul class="todo-list">
+        <div *ngFor="let toDo of toDoService.todoSignal()">
+            {{ toDo.task }}
+        </div>
+    </ul>
+</section>
