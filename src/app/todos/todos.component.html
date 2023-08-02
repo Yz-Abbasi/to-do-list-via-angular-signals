@@ -4,9 +4,7 @@
 </div>
 <section class="main">
     <ul class="todo-list">
-        <div *ngFor="let toDo of visibleTodos()">
-            {{ toDo.task }}
-        </div>
+            <app-task *ngFor="let toDo of visibleTodos()" [toDo]="toDo"></app-task>
     </ul>
 </section>
 <div class="footer" *ngIf="!noTask()">

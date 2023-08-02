@@ -6,17 +6,19 @@ import { AppComponent } from './app.component';
 import { TodosComponent } from './todos/todos.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HeaderComponent } from './shared/header/header.component';
+import { TaskComponent } from './task/task.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodosComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    TaskComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
