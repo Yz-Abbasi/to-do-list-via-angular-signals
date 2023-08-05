@@ -14,11 +14,11 @@ import { TaskComponent } from './task/task.component';
     TodosComponent,
     FooterComponent,
     HeaderComponent,
+    TaskComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    TaskComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

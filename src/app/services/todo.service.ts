@@ -23,4 +23,8 @@ export class TodoService {
   changeFilter(filterName : FilterEnum): void{
     this.filterSignal.set(filterName);
   }
+
+  changeTask(id : number, task : string): void{
+    this.todoSignal.update(todos => todos.map(todo => todo.id === id ? {...todo, task} : todo))
+  }
 }

@@ -4,7 +4,7 @@
 </div>
 <section class="main">
     <ul class="todo-list">
-            <app-task *ngFor="let toDo of visibleTodos()" [toDo]="toDo"></app-task>
+            <app-task *ngFor="let toDo of visibleTodos()" [toDo]="toDo" [isEditing]="editingId === this.toDo.id" (setEditingId)="setEditingId($event)"></app-task>
     </ul>
 </section>
 <div class="footer" *ngIf="!noTask()">

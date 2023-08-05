@@ -10,6 +10,8 @@ import { FilterEnum } from '../types/filter.enum';
 export class TodosComponent implements OnInit {
   toDoService = inject(TodoService);
 
+  editingId : number | null = null;
+
   filterSig = this.toDoService.filterSignal;
   filterEnum = FilterEnum;
 
@@ -54,5 +56,9 @@ export class TodosComponent implements OnInit {
   changeFilter(event : Event , filterState : any): void {
     event.preventDefault();
     this.toDoService.changeFilter(filterState);
+  }
+
+  setEditingId(editingID : any): void{
+    this.editingId = editingID;
   }
 }
