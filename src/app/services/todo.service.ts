@@ -9,14 +9,16 @@ export class TodoService {
   todoSignal  = signal<ToDo[]>([]);
   filterSignal = signal<FilterEnum>(FilterEnum.all);
 
+
   constructor() { }
 
   addTask(task : string): void{
     const toDo : ToDo = {
       task,
       isCompleted : false,
-      id : Math.floor(Math.random())
+      id : Math.round(Math.random() * 100)
     }
+    console.log(`Task's ID is : ${toDo.id}`)
     this.todoSignal.update(toDos => [...toDos, toDo]);
   }
 
@@ -25,6 +27,14 @@ export class TodoService {
   }
 
   changeTask(id : number, task : string): void{
-    this.todoSignal.update(todos => todos.map(todo => todo.id === id ? {...todo, task} : todo))
+    this.todoSignal.update(todos => todos.map(todo => todo.id === id ? {...todo, task} : todo));
+  }
+
+  deleteTodo(id : number): void {
+    this.todoSignal.update(todos => todos.filter((todo) => todo.id !== id));
+  }
+
+  toggleTodo(id : number): void {
+    this.todoSignal.update((todos) => todos.map(todo => todo.id === id ? {...todo, isCompleted : !todo.isCompleted} : todo));
   }
 }

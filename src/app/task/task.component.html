@@ -1,8 +1,10 @@
-<li [ngClass]="{editing: isEditing}">
+<li [ngClass]="{editing : isEditing, completed : toDo.isCompleted}">
     <div class="view">
+        <input type="checkbox" class="toggle" [checked]="toDo.isCompleted" (change)="toggleTodo()">
         <label (dblclick)="activateEditMode()">{{ toDo.task }}</label>
+        <button class="destroy" (click)="deleteTask()"></button>
     </div>
     <ng-container *ngIf="isEditing">
-        <input class="edit" [value]="editingText" (keyup)="changeText($event)" (keyup.enter)="changeTodo()">
+        <input class="edit" [value]="editingText" #textInput (keyup)="changeText($event)" (keyup.enter)="changeTodo()">
     </ng-container>
 </li>
