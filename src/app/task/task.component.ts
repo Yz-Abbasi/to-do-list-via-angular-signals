@@ -26,7 +26,9 @@ export class TaskComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes["isEditing"].currentValue){
-      setTimeout
+      setTimeout(() => {
+        this.textInput?.nativeElement.focus()
+      }, 0)
     }
   }
 
