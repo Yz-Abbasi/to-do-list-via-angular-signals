@@ -16,7 +16,7 @@ export class TodoService {
     const toDo : ToDo = {
       task,
       isCompleted : false,
-      id : Math.round(Math.random() * 100)
+      id : Math.round(Math.random() * 1000)
     }
     console.log(`Task's ID is : ${toDo.id}`)
     this.todoSignal.update(toDos => [...toDos, toDo]);
@@ -36,5 +36,9 @@ export class TodoService {
 
   toggleTodo(id : number): void {
     this.todoSignal.update((todos) => todos.map(todo => todo.id === id ? {...todo, isCompleted : !todo.isCompleted} : todo));
+  }
+
+  toggleAllTasks(isCompleted : boolean): void {
+    this.todoSignal.update((todos) => todos.map((todo) => ({...todo, isCompleted})))
   }
 }

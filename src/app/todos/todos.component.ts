@@ -25,6 +25,8 @@ export class TodosComponent implements OnInit {
 
   itemsLeftCount = computed(() => `item${this.activeTasksCount() > 1 ? 's' : ''} left` );
 
+  isAllTasksSelected = computed(() => this.toDoService.todoSignal().every((todo) => todo.isCompleted));
+
   visibleTodos = computed(() => {
     const todos = this.toDoService.todoSignal();
     const filter = this.toDoService.filterSignal();
@@ -60,5 +62,10 @@ export class TodosComponent implements OnInit {
 
   setEditingId(editingID : any): void{
     this.editingId = editingID;
+  }
+
+  toggleAllTasks(event : Event): void {
+    const target = event.target as HTMLInputElement
+    this.toDoService.toggleAllTasks(target.checked)
   }
 }

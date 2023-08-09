@@ -3,6 +3,8 @@
     <input autofocus class="new-todo" name="" placeholder="What needs to be done ..." [value]="text" (keyup)="changeText($event)" (keyup.enter)="addToDo()">
 </div>
 <section class="main">
+    <input type="checkbox" id="toggle-all" class="toggle-all" [checked]="isAllTasksSelected()" (change)="toggleAllTasks($event)">
+    <label for="toggle-all">Mark all as completed</label>
     <ul class="todo-list">
             <app-task *ngFor="let toDo of visibleTodos()" [toDo]="toDo" [isEditing]="editingId === this.toDo.id" (setEditingId)="setEditingId($event)"></app-task>
     </ul>
