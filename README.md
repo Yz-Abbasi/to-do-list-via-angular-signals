@@ -1,4 +1,4 @@
-# to-do-list-via-angular-signals
+# To Do List via Angular signals
 
 In this to do list, the main focus is on the Angular new feature, SIGNALS, which can be used as replace for -some- of the RxJs functions
 _________________________
@@ -13,7 +13,5 @@ How to set the project up:
 4. Wait for the Angular CLI to set up a local server.
 
 5. After you see 'Compiled successfully' in the terminal you can use the app.
-
-6. Use the list to your heart's content.
 
 _________________________
